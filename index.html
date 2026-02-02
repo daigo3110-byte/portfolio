@@ -7,40 +7,46 @@
 
   <style>
     :root{
-      --bg:#ffffff;
+      --bg:#07080d;
 
-      --panel: rgba(10,11,16,.92);
+      /* ガラスっぽいカード */
+      --panel: rgba(255,255,255,.06);
+
       --text:#f2f3f7;
       --muted: rgba(242,243,247,.72);
-      --line: rgba(242,243,247,.14);
+      --line: rgba(242,243,247,.12);
 
       --accent:#9b8cff;
-      --shadow: 0 18px 60px rgba(0,0,0,.18);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
-      background: var(--bg);
-      color:#111;
+
+      /* 背景をモードに戻す */
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(155,140,255,.20), transparent 60%),
+        radial-gradient(900px 520px at 80% 10%, rgba(255,255,255,.05), transparent 55%),
+        var(--bg);
+
+      color:var(--text);
       min-height:100vh;
       letter-spacing:.02em;
     }
 
     .wrap{max-width:980px; margin:0 auto; padding:34px;}
 
-    /* Top */
     .top{
       display:flex;
-      justify-content:space-between;
       align-items:center;
       margin-bottom:18px;
     }
     .name{
       font-weight:700;
       font-size:14px;
-      color:#111;
+      color:var(--muted);
       display:flex;
       gap:10px;
       align-items:center;
@@ -48,17 +54,18 @@
     .dot{
       width:10px;height:10px;border-radius:999px;
       background:var(--accent);
-      box-shadow:0 0 0 4px rgba(155,140,255,.18);
+      box-shadow:0 0 0 4px rgba(155,140,255,.14);
     }
 
-    /* Hero */
     .hero{
+      border:1px solid var(--line);
       border-radius:22px;
       padding:34px;
-      background:var(--panel);
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
+      backdrop-filter: blur(10px);
     }
     .hero:before{
       content:"";
@@ -86,7 +93,6 @@
       font-size:clamp(28px, 4vw, 46px);
       line-height:1.12;
       letter-spacing:-.02em;
-      color:var(--text);
     }
     .lead{
       margin:0;
@@ -96,7 +102,6 @@
       font-size:15px;
     }
 
-    /* Sections */
     .grid{
       margin-top:18px;
       display:grid;
@@ -108,10 +113,12 @@
     }
 
     .card{
+      border:1px solid var(--line);
       border-radius:20px;
       padding:20px;
       background:var(--panel);
       box-shadow:var(--shadow);
+      backdrop-filter: blur(10px);
     }
     .card h2{
       margin:0 0 10px;
@@ -135,10 +142,10 @@
       gap:10px;
     }
     li{
-      border:1px solid rgba(242,243,247,.12);
+      border:1px solid rgba(242,243,247,.10);
       border-radius:16px;
       padding:12px;
-      background:rgba(255,255,255,.02);
+      background:rgba(255,255,255,.03);
       display:flex;
       gap:10px;
       align-items:flex-start;
@@ -162,7 +169,7 @@
 
     .foot{
       text-align:center;
-      color:#666;
+      color:rgba(242,243,247,.55);
       font-size:12px;
       margin:22px 0 8px;
     }
@@ -177,15 +184,13 @@
     </div>
 
     <section class="hero">
-      <div class="label">
-        Portfolio / IT Engineer Candidate
-      </div>
+      <div class="label">Portfolio</div>
 
-      <h1>未経験からITエンジニアを目指しています</h1>
+      <h1>長く安心して任せられるエンジニアへ</h1>
 
       <p class="lead">
-        Webメディア運営やコンテンツ制作を通じて、情報を整理し分かりやすく伝える力を培ってきました。<br>
-        相手の意図をくみ取ったコミュニケーションと、生成AIを活用した業務効率化を強みにしています。
+        Webコンテンツ制作で培った情報整理力と、相手の意図をくみ取るコミュニケーションを強みにしています。<br>
+        生成AIも活用しながら、現場で着実に役割を果たせる力を積み上げています。
       </p>
     </section>
 
@@ -204,27 +209,18 @@
       <section class="card">
         <h2>Strengths</h2>
         <ul>
-          <li>
-            <span class="k"></span>
-            <div class="t">
-              <strong>情報整理・ドキュメント作成</strong>
-              <small>読み手に配慮し、分かりやすく伝えることが得意です</small>
-            </div>
-          </li>
-          <li>
-            <span class="k"></span>
-            <div class="t">
-              <strong>コミュニケーション・調整力</strong>
-              <small>現場での状況共有や段取り調整を経験しています</small>
-            </div>
-          </li>
-          <li>
-            <span class="k"></span>
-            <div class="t">
-              <strong>生成AIの業務活用</strong>
-              <small>情報整理や制作効率化に取り入れてきました</small>
-            </div>
-          </li>
+          <li><span class="k"></span><div class="t">
+            <strong>情報整理・ドキュメント作成</strong>
+            <small>分かりやすく伝える文章構成が得意です</small>
+          </div></li>
+          <li><span class="k"></span><div class="t">
+            <strong>コミュニケーション・調整力</strong>
+            <small>状況共有や段取り調整を経験しています</small>
+          </div></li>
+          <li><span class="k"></span><div class="t">
+            <strong>生成AIの業務活用</strong>
+            <small>情報整理や制作効率化に取り入れてきました</small>
+          </div></li>
         </ul>
       </section>
 
@@ -233,27 +229,18 @@
     <section class="card" style="margin-top:14px;">
       <h2>Experience</h2>
       <ul>
-        <li>
-          <span class="k"></span>
-          <div class="t">
-            <strong>個人ブログ運営</strong>
-            <small>最高月間PV 7万、アフィリエイト報酬 月10万円を達成</small>
-          </div>
-        </li>
-        <li>
-          <span class="k"></span>
-          <div class="t">
-            <strong>YouTube台本制作</strong>
-            <small>納品実績55本以上</small>
-          </div>
-        </li>
-        <li>
-          <span class="k"></span>
-          <div class="t">
-            <strong>TikTok運用</strong>
-            <small>アフィリエイト11件発生</small>
-          </div>
-        </li>
+        <li><span class="k"></span><div class="t">
+          <strong>個人ブログ運営</strong>
+          <small>最高月間PV 7万、報酬 月10万円を達成</small>
+        </div></li>
+        <li><span class="k"></span><div class="t">
+          <strong>YouTube台本制作</strong>
+          <small>納品実績55本以上</small>
+        </div></li>
+        <li><span class="k"></span><div class="t">
+          <strong>TikTok運用</strong>
+          <small>アフィリエイト11件発生</small>
+        </div></li>
       </ul>
     </section>
 
