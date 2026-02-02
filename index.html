@@ -4,21 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Daigo Saito | Portfolio</title>
+  <meta name="description" content="Daigo Saitoのポートフォリオ。情報整理・文章設計・生成AI活用を強みに、現場で着実に貢献できる力を積み上げています。" />
 
   <style>
     :root{
-      /* 背景を柔らかいチャコールグレーに */
-      --bg:#151720;
+      /* ちゃんと“グレー寄り”に見える背景 */
+      --bg:#1f2230;
 
-      /* カードは薄いガラス */
-      --panel: rgba(255,255,255,.07);
+      /* 読みやすいガラスカード（前より明るめ） */
+      --panel: rgba(255,255,255,.10);
+      --panel2: rgba(255,255,255,.08);
 
-      --text:#f2f3f7;
-      --muted: rgba(242,243,247,.72);
-      --line: rgba(242,243,247,.12);
+      /* 文字は少し明るくして可読性UP */
+      --text:#f7f7fb;
+      --muted: rgba(247,247,251,.74);
+      --line: rgba(247,247,251,.16);
 
       --accent:#9b8cff;
-      --shadow: 0 18px 60px rgba(0,0,0,.40);
+      --accent2:#45c6ff;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.42);
     }
 
     *{box-sizing:border-box}
@@ -26,10 +31,11 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
 
-      /* 光を弱めて目に優しく */
+      /* 光は控えめ、でも“変わった感”は出る */
       background:
-        radial-gradient(900px 520px at 20% 0%, rgba(155,140,255,.14), transparent 60%),
-        radial-gradient(900px 520px at 80% 10%, rgba(255,255,255,.04), transparent 55%),
+        radial-gradient(900px 520px at 18% 0%, rgba(155,140,255,.16), transparent 60%),
+        radial-gradient(900px 520px at 82% 8%, rgba(69,198,255,.09), transparent 56%),
+        radial-gradient(1200px 700px at 50% 120%, rgba(255,255,255,.05), transparent 55%),
         var(--bg);
 
       color:var(--text);
@@ -37,11 +43,14 @@
       letter-spacing:.02em;
     }
 
+    a{color:inherit; text-decoration:none}
     .wrap{max-width:980px; margin:0 auto; padding:34px;}
 
+    /* Top */
     .top{
       display:flex;
       align-items:center;
+      justify-content:space-between;
       margin-bottom:18px;
     }
     .name{
@@ -54,15 +63,16 @@
     }
     .dot{
       width:10px;height:10px;border-radius:999px;
-      background:var(--accent);
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow:0 0 0 4px rgba(155,140,255,.14);
     }
 
+    /* Hero */
     .hero{
       border:1px solid var(--line);
       border-radius:22px;
       padding:34px;
-      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
@@ -71,8 +81,10 @@
     .hero:before{
       content:"";
       position:absolute; inset:-2px;
-      background:radial-gradient(700px 260px at 20% 0%, rgba(155,140,255,.18), transparent 60%);
-      opacity:.9;
+      background:
+        radial-gradient(700px 260px at 18% 0%, rgba(155,140,255,.18), transparent 60%),
+        radial-gradient(650px 240px at 78% 10%, rgba(69,198,255,.12), transparent 58%);
+      opacity:.95;
       pointer-events:none;
     }
     .hero *{position:relative}
@@ -86,7 +98,7 @@
       border:1px solid var(--line);
       padding:8px 12px;
       border-radius:999px;
-      background:rgba(255,255,255,.03);
+      background:rgba(255,255,255,.05);
     }
 
     h1{
@@ -98,11 +110,12 @@
     .lead{
       margin:0;
       color:var(--muted);
-      line-height:1.85;
-      max-width:68ch;
-      font-size:15px;
+      line-height:1.9;         /* 読みやすさ重視 */
+      max-width:72ch;          /* 行長を抑えて読みやすく */
+      font-size:15.5px;        /* 少しだけ上げる */
     }
 
+    /* Cards */
     .grid{
       margin-top:18px;
       display:grid;
@@ -121,18 +134,20 @@
       box-shadow:var(--shadow);
       backdrop-filter: blur(12px);
     }
+
     .card h2{
       margin:0 0 10px;
       font-size:13px;
       letter-spacing:.10em;
       text-transform:uppercase;
-      color:rgba(242,243,247,.88);
+      color:rgba(247,247,251,.90);
     }
+
     .card p{
       margin:0;
       color:var(--muted);
-      line-height:1.85;
-      font-size:14px;
+      line-height:1.9;
+      font-size:14.5px;
     }
 
     ul{
@@ -142,35 +157,39 @@
       display:grid;
       gap:10px;
     }
+
     li{
-      border:1px solid rgba(242,243,247,.10);
+      border:1px solid rgba(247,247,251,.14);
       border-radius:16px;
       padding:12px;
-      background:rgba(255,255,255,.03);
+      background:var(--panel2);
       display:flex;
       gap:10px;
       align-items:flex-start;
     }
+
     .k{
       width:8px;height:8px;border-radius:999px;
-      background:var(--accent);
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
       margin-top:7px;
       flex:0 0 auto;
     }
+
     .t strong{
       font-size:13px;
       color:var(--text);
     }
+
     .t small{
       display:block;
       color:var(--muted);
-      margin-top:3px;
-      line-height:1.6;
+      margin-top:4px;
+      line-height:1.7;
     }
 
     .foot{
       text-align:center;
-      color:rgba(242,243,247,.55);
+      color:rgba(247,247,251,.58);
       font-size:12px;
       margin:22px 0 8px;
     }
@@ -214,10 +233,12 @@
             <strong>情報整理・ドキュメント作成</strong>
             <small>分かりやすく伝える文章構成が得意です</small>
           </div></li>
+
           <li><span class="k"></span><div class="t">
             <strong>コミュニケーション・調整力</strong>
             <small>状況共有や段取り調整を経験しています</small>
           </div></li>
+
           <li><span class="k"></span><div class="t">
             <strong>生成AIの業務活用</strong>
             <small>情報整理や制作効率化に取り入れてきました</small>
@@ -234,10 +255,12 @@
           <strong>個人ブログ運営</strong>
           <small>最高月間PV 7万、報酬 月10万円を達成</small>
         </div></li>
+
         <li><span class="k"></span><div class="t">
           <strong>YouTube台本制作</strong>
           <small>納品実績55本以上</small>
         </div></li>
+
         <li><span class="k"></span><div class="t">
           <strong>TikTok運用</strong>
           <small>アフィリエイト11件発生</small>
