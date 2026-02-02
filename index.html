@@ -4,74 +4,283 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Daigo Saito | Portfolio</title>
+  <meta name="description" content="未経験からITエンジニアを目指しています。情報整理・コミュニケーション・AI活用を強みにしています。" />
+
   <style>
-    body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f7f7f7;
+    :root{
+      --bg:#0a0b10;
+      --panel: rgba(255,255,255,.04);
+      --text:#f2f3f7;
+      --muted: rgba(242,243,247,.72);
+      --line: rgba(242,243,247,.14);
+      --accent:#9b8cff;
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
     }
-    header {
-      padding: 60px 20px;
-      text-align: center;
-      background: #111;
-      color: #fff;
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 20% 0%, rgba(155,140,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 80% 10%, rgba(255,255,255,.06), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      letter-spacing:.02em;
     }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:980px; margin:0 auto; padding:28px;}
+
+    /* Top */
+    .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
     }
-    section {
-      background: #fff;
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
+    .name{
+      font-weight:700;
+      font-size:14px;
+      color:var(--muted);
+      display:flex;
+      gap:10px;
+      align-items:center;
     }
-    h2 {
-      margin-top: 0;
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background:var(--accent);
+      box-shadow:0 0 0 4px rgba(155,140,255,.12);
     }
-    a {
-      color: #0070f3;
-      text-decoration: none;
+
+    /* Hero */
+    .hero{
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:34px;
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:radial-gradient(700px 260px at 20% 0%, rgba(155,140,255,.22), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero *{position:relative}
+
+    .label{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(255,255,255,.03);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size:clamp(28px, 4vw, 46px);
+      line-height:1.12;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      max-width:68ch;
+      font-size:15px;
+    }
+
+    .links{
+      margin-top:18px;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .pill{
+      border:1px solid var(--line);
+      padding:10px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      transition:background .2s ease;
+    }
+    .pill:hover{background:rgba(255,255,255,.07)}
+    .pill span{color:var(--muted); font-size:12px; margin-left:6px}
+
+    /* Sections */
+    .grid{
+      margin-top:18px;
+      display:grid;
+      gap:14px;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:900px){
+      .grid{grid-template-columns:1.2fr .8fr;}
+    }
+
+    .card{
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px;
+      background:var(--panel);
+      box-shadow:var(--shadow);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:15px;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:rgba(242,243,247,.9);
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.85;
+      font-size:14px;
+    }
+
+    ul{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    li{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:12px;
+      background:rgba(255,255,255,.02);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .k{
+      width:8px;height:8px;border-radius:999px;
+      background:var(--accent);
+      margin-top:7px;
+      flex:0 0 auto;
+    }
+    .t strong{font-size:13px}
+    .t small{display:block; color:var(--muted); margin-top:3px; line-height:1.6}
+
+    .foot{
+      text-align:center;
+      color:var(--muted);
+      font-size:12px;
+      margin:22px 0 8px;
     }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>Daigo Saito</h1>
-    <p>未経験からITエンジニアを目指しています</p>
-    <p>AIも活用しながら学習・制作中です</p>
-  </header>
+  <div class="wrap">
 
-  <main>
-    <section>
-      <h2>About</h2>
-      <p>
-        Webライターとして培った「分かりやすく伝える力」を活かし、  
-        ITエンジニアとして価値を提供できるよう学習を進めています。
+    <div class="top">
+      <div class="name"><span class="dot"></span>Daigo Saito</div>
+    </div>
+
+    <section class="hero">
+      <div class="label">
+        Portfolio / IT Engineer Candidate
+      </div>
+
+      <h1>未経験からITエンジニアを目指しています</h1>
+
+      <p class="lead">
+        Webメディア運営やコンテンツ制作を通じて、情報を整理し分かりやすく伝える力を培ってきました。<br>
+        相手の意図をくみ取ったコミュニケーションと、生成AIを活用した業務効率化を強みにしています。
       </p>
+
+      <div class="links">
+        <a class="pill" href="https://github.com/daigo3110-byte" target="_blank" rel="noopener">
+          GitHub <span>code / output</span>
+        </a>
+        <a class="pill" href="https://daigo3110-byte.github.io/portfolio/" target="_blank" rel="noopener">
+          Website <span>public page</span>
+        </a>
+      </div>
     </section>
 
-    <section>
-      <h2>Skills</h2>
+    <div class="grid">
+
+      <section class="card">
+        <h2>About</h2>
+        <p>
+          物流現場では、正確さとスピードが求められる環境で優先順位を意識して業務を組み立て、
+          多様なメンバーと連携しながら安定稼働に貢献しました。<br><br>
+          個人事業ではSEO記事や動画台本制作に従事し、
+          読み手の悩みを想定した文章設計と納期順守・修正対応を徹底してきました。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Strengths</h2>
+        <ul>
+          <li>
+            <span class="k"></span>
+            <div class="t">
+              <strong>情報整理・ドキュメント作成</strong>
+              <small>読み手に配慮し、分かりやすく伝えることが得意です</small>
+            </div>
+          </li>
+          <li>
+            <span class="k"></span>
+            <div class="t">
+              <strong>コミュニケーション・調整力</strong>
+              <small>現場での状況共有や段取り調整を経験しています</small>
+            </div>
+          </li>
+          <li>
+            <span class="k"></span>
+            <div class="t">
+              <strong>生成AIの業務活用</strong>
+              <small>情報整理や制作効率化に取り入れてきました</small>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+    </div>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Experience</h2>
       <ul>
-        <li>HTML / CSS（学習中）</li>
-        <li>JavaScript（学習中）</li>
-        <li>ChatGPTを活用した制作</li>
+        <li>
+          <span class="k"></span>
+          <div class="t">
+            <strong>個人ブログ運営</strong>
+            <small>最高月間PV 7万、アフィリエイト報酬 月10万円を達成</small>
+          </div>
+        </li>
+        <li>
+          <span class="k"></span>
+          <div class="t">
+            <strong>YouTube台本制作</strong>
+            <small>納品実績55本以上</small>
+          </div>
+        </li>
+        <li>
+          <span class="k"></span>
+          <div class="t">
+            <strong>TikTok運用</strong>
+            <small>アフィリエイト11件発生</small>
+          </div>
+        </li>
       </ul>
     </section>
 
-    <section>
-      <h2>Links</h2>
-      <p>
-        GitHub：
-        <a href="https://github.com/" target="_blank">
-          https://github.com/（ここに自分のURL）
-        </a>
-      </p>
-    </section>
-  </main>
+    <div class="foot">© 2026 Daigo Saito</div>
+
+  </div>
 </body>
 </html>
