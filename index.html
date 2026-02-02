@@ -7,17 +7,18 @@
 
   <style>
     :root{
-      --bg:#12131a;
+      /* 背景を柔らかいチャコールグレーに */
+      --bg:#151720;
 
-      /* ガラスっぽいカード */
-      --panel: rgba(255,255,255,.06);
+      /* カードは薄いガラス */
+      --panel: rgba(255,255,255,.07);
 
       --text:#f2f3f7;
       --muted: rgba(242,243,247,.72);
       --line: rgba(242,243,247,.12);
 
       --accent:#9b8cff;
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --shadow: 0 18px 60px rgba(0,0,0,.40);
     }
 
     *{box-sizing:border-box}
@@ -25,10 +26,10 @@
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial, sans-serif;
 
-      /* 背景をモードに戻す */
+      /* 光を弱めて目に優しく */
       background:
-        radial-gradient(900px 520px at 20% 0%, rgba(155,140,255,.20), transparent 60%),
-        radial-gradient(900px 520px at 80% 10%, rgba(255,255,255,.05), transparent 55%),
+        radial-gradient(900px 520px at 20% 0%, rgba(155,140,255,.14), transparent 60%),
+        radial-gradient(900px 520px at 80% 10%, rgba(255,255,255,.04), transparent 55%),
         var(--bg);
 
       color:var(--text);
@@ -61,16 +62,16 @@
       border:1px solid var(--line);
       border-radius:22px;
       padding:34px;
-      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.03));
       box-shadow:var(--shadow);
       position:relative;
       overflow:hidden;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
     .hero:before{
       content:"";
       position:absolute; inset:-2px;
-      background:radial-gradient(700px 260px at 20% 0%, rgba(155,140,255,.22), transparent 60%);
+      background:radial-gradient(700px 260px at 20% 0%, rgba(155,140,255,.18), transparent 60%);
       opacity:.9;
       pointer-events:none;
     }
@@ -118,7 +119,7 @@
       padding:20px;
       background:var(--panel);
       box-shadow:var(--shadow);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
     }
     .card h2{
       margin:0 0 10px;
